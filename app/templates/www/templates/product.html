@@ -1,0 +1,30 @@
+<ion-view>
+  <ion-content class="padding">
+    <div class="item">
+      <h2>{{product.label}}</h2>
+    </div>
+    <div class="item item-body">
+      <img class="img-responsive" ng-src="{{product.image}}">
+    </div>
+    <div class="card">
+      <div class="item item-text-wrap">
+        {{product.description}}
+      </div>
+    </div>
+    <div class="list">
+      <div class="item cart-item item-icon-left">
+        <b>Price</b>
+        <span class="item-note"><b>{{product.price|bcCurrency}}</b></span>
+      </div>
+      <div class="item cart-item item-icon-left" ng-repeat="attribute in product.attributes">
+        {{attribute.label}}
+        <span class="item-note">{{attribute.value}}</span>
+      </div>
+    </div>
+    <div class="row responsive-sm">
+      <div class="col">
+        <button class="button button-block button-dark" ng-click="addItem(product._id, 1)">ORDER NOW</button>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

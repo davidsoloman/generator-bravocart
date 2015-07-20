@@ -1,0 +1,36 @@
+{
+  "name": "generator-bravocart",
+  "version": "0.1.0",
+  "description": "Build hybrid mobile shops using AngularJS/Ionic Framework",
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "app"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bravocart/generator-bravocart.git"
+  },
+  "keywords": [
+    "yeoman-generator",
+    "bravocart",
+    "angularjs",
+    "angular",
+    "ionic",
+    "mobile",
+    "shop",
+    "mobile"
+  ],
+  "author": "Georg Schlenkhoff <georg@oceanhouse21.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bravocart/bravocart-seed/issues"
+  },
+  "homepage": "https://github.com/bravocart/bravocart-seed#readme",
+  "dependencies": {
+    "chalk": "^1.1.0",
+    "yeoman-generator": "^0.20.1",
+    "yosay": "^1.0.4"
+  }
+}

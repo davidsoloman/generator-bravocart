@@ -1,0 +1,48 @@
+<ion-view>
+  <ion-content class="padding">
+    <div ng-if="cart.items.length">
+      <h2>My cart</h2>
+      <div class="list card" ng-repeat="item in cart.items">
+        <div class="item item-avatar">
+          <img class="img-responsive" ng-src="{{item.product.image}}">
+          <h2>{{item.product.label}}</h2>
+          <p><a href="#" ng-click="removeItem(item._id)">Remove</a></p>
+        </div>
+        <label class="item item-input item-select">
+          <div class="input-label">Quantity</div>
+          <select ng-change="modifyQuantity(item._id,item.quantity)" ng-model="item.quantity">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+          </select>
+        </label>
+        <div class="item cart-item item-icon-left">
+          Unit Price
+          <span class="item-note">{{item.product.price|bcCurrency}}</span>
+        </div>
+        <div class="item cart-item item-icon-left">
+          Line Total
+          <span class="item-note">{{item.lineTotal|bcCurrency}}</span>
+        </div>
+        <div class="item item-icon-left cart-item item-divider">
+          <div class="input-label">Total</div>
+          <span class="item-note">{{cart.total|bcCurrency}}</span>
+        </div>
+      </div>
+      <em>All prices include VAT</em>
+      <br>
+      <div class="row responsive-sm">
+        <div class="col">
+          <button class="button button-block button-dark" ng-click="doCheckout()">PAYPAL CHECKOUT</button>
+        </div>
+      </div>
+    </div>
+    <div ng-if="!(cart.items.length)">
+      <p>Yor cart is empty.</p>
+    </div>
+  </ion-content>
+</ion-view>

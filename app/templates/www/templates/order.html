@@ -1,0 +1,46 @@
+<ion-view>
+  <ion-content class="padding">
+    <h2>Kasse</h2>
+    <div class="list">
+      <div class="item item-divider">1. Shipping Address</div>
+      <label class="item item-input">
+        <input ng-model="order.shipping.first" ng-model-options="{updateOn:'default blur',debounce:{default:500,blur:0}}" type="text" placeholder="First">
+      </label>
+      <label class="item item-input">
+        <input ng-model="order.shipping.last" type="text" placeholder="Last">
+      </label>
+      <label class="item item-input">
+        <input ng-model="order.shipping.street" type="text" placeholder="Street">
+      </label>
+      <label class="item item-input">
+        <input ng-model="order.shipping.zip" type="text" placeholder="Zip">
+      </label>
+      <label class="item item-input">
+        <input ng-model="order.shipping.city" type="text" placeholder="City">
+      </label>
+      <label class="item item-input">
+        <input ng-model="order.shipping.country" type="text">
+      </label>
+      <br>
+      <div class="item item-divider">2. Email and phone</div>
+      <label class="item item-input">
+        <input ng-model="order.customer.email" type="text" placeholder="Email">
+      </label>
+      <label class="item item-input">
+        <input ng-model="order.customer.phone" type="text" placeholder="Phone (optional)">
+      </label>
+      <br>
+      <div class="item item-divider">3. Cart</div>
+      <div class="item item-icon-left cart-item" ng-model="item" ng-repeat="item in order.items">
+        {{item.qty}} x {{item.label}}
+        <span class="item-note">{{item.sumVAT|bcCurrency}}</span>
+      </div>
+      <div class="item item-icon-left cart-item item-divider">
+        Total
+        <span class="item-note">{{order.totalVAT|bcCurrency}}</span>
+      </div>
+    </div>
+    <em>All prices include VAT</em>
+    <button class="button button-block button-dark" ng-click="updateOrder()">ORDER NOW</button>
+  </ion-content>
+</ion-view>

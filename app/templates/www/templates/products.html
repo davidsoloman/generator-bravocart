@@ -1,0 +1,30 @@
+<ion-view>
+  <ion-content class="padding">
+    <div ng-repeat="product in products">
+      <div class="row" ng-if="$even">
+        <div class="col col-50">
+          <div class="list card">
+            <a ui-sref="app.product({ productId: products[$index]._id })">
+              <div class="item item-image"><img class="img-responsive" ng-src="{{products[$index].image}}"></div>
+            </a>
+            <div class="item">
+              <h2>{{products[$index].label}}</h2>
+              <p>{{products[$index].price|bcCurrency}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col col-50" ng-if="products[$index +1]">
+          <div class="list card">
+            <a ui-sref="app.product({ productId: products[$index + 1]._id })">
+              <div class="item item-image"><img class="img-responsive" ng-src="{{products[$index +1].image}}"></div>
+            </a>
+            <div class="item">
+              <h2>{{products[$index +1].label}}</h2>
+              <p>{{products[$index].price|bcCurrency}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
