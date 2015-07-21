@@ -22,15 +22,15 @@
         </label>
         <div class="item cart-item item-icon-left">
           Unit Price
-          <span class="item-note">{{item.product.price|bcCurrency}}</span>
+          <span class="item-note">{{item.product|bcPrice}}</span>
         </div>
         <div class="item cart-item item-icon-left">
           Line Total
-          <span class="item-note">{{item.lineTotal|bcCurrency}}</span>
+          <span class="item-note">{{item|bcPrice}}</span>
         </div>
         <div class="item item-icon-left cart-item item-divider">
           <div class="input-label">Total</div>
-          <span class="item-note">{{cart.total|bcCurrency}}</span>
+          <span class="item-note">{{cart|bcPrice}}</span>
         </div>
       </div>
       <em>All prices include VAT</em>

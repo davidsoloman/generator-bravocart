@@ -1,6 +1,6 @@
 <ion-view>
   <ion-content class="padding">
-    <h2>Kasse</h2>
+    <h2>Checkout</h2>
     <div class="list">
       <div class="item item-divider">1. Shipping Address</div>
       <label class="item item-input">
@@ -33,11 +33,11 @@
       <div class="item item-divider">3. Cart</div>
       <div class="item item-icon-left cart-item" ng-model="item" ng-repeat="item in order.items">
         {{item.qty}} x {{item.label}}
-        <span class="item-note">{{item.sumVAT|bcCurrency}}</span>
+        <span class="item-note">{{item.sumVAT|bcPrice}}</span>
       </div>
       <div class="item item-icon-left cart-item item-divider">
         Total
-        <span class="item-note">{{order.totalVAT|bcCurrency}}</span>
+        <span class="item-note">{{order.totalVAT|bcPrice}}</span>
       </div>
     </div>
     <em>All prices include VAT</em>

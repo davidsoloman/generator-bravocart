@@ -14,7 +14,7 @@
     <div class="list">
       <div class="item cart-item item-icon-left">
         <b>Price</b>
-        <span class="item-note"><b>{{product.price|bcCurrency}}</b></span>
+        <span class="item-note"><b>{{product|bcPrice}}</b></span>
       </div>
       <div class="item cart-item item-icon-left" ng-repeat="attribute in product.attributes">
         {{attribute.label}}

@@ -3,7 +3,6 @@
     <ion-nav-bar class="bar-positive">
       <ion-nav-back-button>
       </ion-nav-back-button>
-
       <ion-nav-buttons side="left">
         <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
         </button>
@@ -12,7 +11,7 @@
         <img class="logo" src="img/30x30.png" height="30">
       </ion-nav-title>
       <ion-nav-buttons side="right">
-        <button ui-sref="shop.cart({cartId:cart._id})" class="button button-icon button-clear ion-bag"></button>
+        <button ui-sref="app.carts({cartId:cart._id})" class="button button-icon button-clear ion-bag"></button>
       </ion-nav-buttons>
     </ion-nav-bar>
     <ion-nav-view name="menuContent"></ion-nav-view>
@@ -23,13 +22,13 @@
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item menu-close href="/">
+        <ion-item menu-close ui-sref="app.products">
           Home
         </ion-item>
-        <ion-item menu-close href="/imprint">
+        <ion-item menu-close ui-sref="app.imprint">
           Imprint
         </ion-item>
-        <ion-item menu-close href="/help">
+        <ion-item menu-close ui-sref="app.help">
           Help
         </ion-item>
       </ion-list>

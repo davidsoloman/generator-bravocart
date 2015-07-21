@@ -22,12 +22,6 @@ module.exports = yeoman.Base.extend({
       name: 'apiKey',
       message: 'What is your API key (found at https://bravocart.io/settings)?',
       store   : true
-    }, {
-      type: 'list',
-      name: 'currency',
-      message: 'In which currency you want to display prices?',
-      choices: ['USD', 'EUR', 'GBP', 'JPY', 'BTC'],
-      store: true
     }];
     this.prompt(prompts, function (props) {
       this.destinationRoot(props.name);
@@ -40,14 +34,14 @@ module.exports = yeoman.Base.extend({
   writing: {
     templates: function() {
       this.fs.copyTpl(
-        this.templatePath('**/+(index.html|app.js|package.json)'),
+        this.templatePath('**/+(index.html|app.js|package.json|config.xml)'),
         this.destinationPath(),
         this.props
       );
     },
     files: function() {
       this.fs.copy(
-        this.templatePath('**/!(index.html|app.js|package.json)'),
+        this.templatePath('**/!(index.html|app.js|package.json|config.xml)'),
         this.destinationPath()
       );
     },
@@ -65,7 +59,7 @@ module.exports = yeoman.Base.extend({
   },
 
   end: function() {
-    this.spawnCommand('gulp', ['serve']);
+    this.spawnCommand('ionic', ['serve']);
   }
 
 });

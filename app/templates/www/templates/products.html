@@ -9,7 +9,7 @@
             </a>
             <div class="item">
               <h2>{{products[$index].label}}</h2>
-              <p>{{products[$index].price|bcCurrency}}</p>
+              <p>{{products[$index]|bcPrice}}</p>
             </div>
           </div>
         </div>
@@ -20,7 +20,7 @@
             </a>
             <div class="item">
               <h2>{{products[$index +1].label}}</h2>
-              <p>{{products[$index].price|bcCurrency}}</p>
+              <p>{{products[$index]|bcPrice}}</p>
             </div>
           </div>
         </div>

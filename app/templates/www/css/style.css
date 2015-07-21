@@ -9,3 +9,8 @@
 .cart-item {
   padding-left: 16px !important;
 }
+
+.bar.bar-positive {
+  border-color: #009CDE;
+  background-color: #009CDE;
+}
