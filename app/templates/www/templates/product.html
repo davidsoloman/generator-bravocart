@@ -1,29 +1,22 @@
 <ion-view>
-  <ion-content class="padding">
-    <div class="item">
-      <h2>{{product.label}}</h2>
-    </div>
+  <ion-content class="padding product">
     <div class="item item-body">
       <img class="img-responsive" ng-src="{{product.image}}">
     </div>
     <div class="card">
-      <div class="item item-text-wrap">
+      <div class="item item-text-wrap description">
         {{product.description}}
       </div>
     </div>
-    <div class="list">
-      <div class="item cart-item item-icon-left">
-        <b>Price</b>
-        <span class="item-note"><b>{{product|bcPrice}}</b></span>
+    <div class="row">
+      <div class="col col-67">
+        <button class="button button-block button-dark" ng-click="addItem(product._id, 1)">Add to cart</button>
       </div>
-      <div class="item cart-item item-icon-left" ng-repeat="attribute in product.attributes">
-        {{attribute.label}}
-        <span class="item-note">{{attribute.value}}</span>
-      </div>
-    </div>
-    <div class="row responsive-sm">
-      <div class="col">
-        <button class="button button-block button-dark" ng-click="addItem(product._id, 1)">ORDER NOW</button>
+      <div class="col tag">
+        <p ng-if="product.brand">{{product.brand}}</p>
+        <p class="old-price" ng-if="product.oldPrice">{{product.oldPrice | bcCurrency}}</p>
+        <p ng-class="{'highlight': product.oldPrice}">{{product.price | bcCurrency}}</p>
+        </p>
       </div>
     </div>
   </ion-content>

@@ -1,4 +1,4 @@
-angular.module('myShop.controllers', [])
+angular.module('<%- name %>.controllers', [])
 
 .controller('ProductsCtrl', function($scope, products, $state) {
   // Retrieve all products
@@ -29,9 +29,12 @@ angular.module('myShop.controllers', [])
 })
 
 .controller('CartCtrl', function($scope, cart, $bcOrder, $bcCart,
-  appUrl, $window, $ionicLoading) {
-    //Assign cart to scope
-    $scope.cart = cart;
+appUrl, $window, $ionicLoading) {
+  // Hide any loading frame
+  $ionicLoading.hide();
+
+  //Assign cart to scope
+  $scope.cart = cart;
   
   // Change item's quantity
   $scope.modifyQuantity = function(_item, quantity) {
@@ -56,9 +59,10 @@ angular.module('myShop.controllers', [])
         $bcOrder.order.paymentMethod = 'paypal-express';
         return $bcOrder.update();
       })
-      .then(function(data) {
+      .then(function(order) {
         // Return to /orders after Paypal
-        var returnUrl = appUrl + '/orders/' + data._id;
+        var returnUrl = appUrl + '/orders/' + order._id;
+        var cancelUrl = appUrl;
         return $bcOrder.pay({
           returnUrl: returnUrl,
           cancelUrl: appUrl
@@ -83,25 +87,37 @@ angular.module('myShop.controllers', [])
   };
 })
 
-.controller('OrderCtrl', function($scope, order, $bcOrder, $state) {
+.controller('OrderCtrl', function($ionicLoading, $scope,
+order, $bcOrder, $state, $stateParams) {
+  // Hide any loading frame
+  $ionicLoading.hide();
+
   // Assign order to scope
   $scope.order = order;
 
   // Update order details
   $scope.updateOrder = function() {
+    // Show loading modal
+    $ionicLoading.show({
+      template: 'Doing checkout ...'
+    });
     $bcOrder.update()
       .then(function() {
         // Initialise checkout
-        return $bcOrder.pay({orderId: order._id});
+        return $bcOrder.pay($stateParams);
       })
       .then(function() {
         // Redirect to Thanks page
+        $ionicLoading.hide();
         $state.go('app.thanks');
       });
   };
 })
 
-.controller('ErrorCtrl', function($scope, $stateParams) {
+.controller('ErrorCtrl', function($scope, $stateParams, $ionicLoading) {
   // Load error message from params
   $scope.message = $stateParams.message;
+
+  // Hide any loading frame
+  $ionicLoading.hide();
 });

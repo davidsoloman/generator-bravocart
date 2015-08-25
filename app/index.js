@@ -14,7 +14,7 @@ module.exports = yeoman.Base.extend({
     var prompts = [{
       type: 'input',
       name: 'name',
-      message: 'What is the name of your your project?',
+      message: 'What is the name of your your project (no space allowed)?',
       default: 'bravoshop',
       store   : true
     }, {
@@ -34,14 +34,14 @@ module.exports = yeoman.Base.extend({
   writing: {
     templates: function() {
       this.fs.copyTpl(
-        this.templatePath('**/+(index.html|app.js|package.json|config.xml)'),
+        this.templatePath('**/+(index.html|app.js|controllers.js|services.js|package.json|config.xml)'),
         this.destinationPath(),
         this.props
       );
     },
     files: function() {
       this.fs.copy(
-        this.templatePath('**/!(index.html|app.js|package.json|config.xml)'),
+        this.templatePath('**/!(index.html|app.js|controllers.js|services.js|package.json|config.xml)'),
         this.destinationPath()
       );
     },

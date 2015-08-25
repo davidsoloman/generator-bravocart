@@ -1,16 +1,197 @@
+/*
+ * The style.css is structured
+ * as recommended by smacss.com
+ */
+
+/*
+ * Base Styles
+ */
+
+body, h1, h2, h3, h4, h5 {
+/*  font-family: 'Nunito', sans-serif; */
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 0.2px;
+  font-size: 14px;
+}
+
+h2 {
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+hr {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
 .logo {
   margin-top: 10px;
 }
 
-.bar .buttons-right span {
-  margin-left: 25px;
+/*
+ * Modules
+ */
+
+/* Cart */
+
+.cart.cart-item .info {
+  color: #848787;
 }
 
-.cart-item {
-  padding-left: 16px !important;
+.cart.cart-item .info i {
+  margin-left: 6px;
+  font-size: 16px;
+  color: #444444;
 }
+
+.cart.cart-item .line-total {
+  text-align: right;
+}
+
+.cart.cart-item input {
+  border: 1px solid #000;
+  float: right;
+  width: 80%;
+  line-height: 15px;
+  padding: 0 0 0 8px;
+  height: 28px;
+  margin-bottom: 7px;
+  color: #000;
+}
+
+.cart.cart-item .price {
+  margin-left: 15px;
+}
+
+.cart.total {
+  font-weight: 700; 
+  margin-top: 30px;
+  font-size: 17px;
+}
+
+.cart.total p {
+  display: inline-block;
+}
+
+.cart.total p:nth-child(2) {
+  float: right;
+}
+
+/* Img Responsive */
+
+.img-responsive {
+  width: 100%;
+  height: auto;
+}
+
+/* Ionic Overrides */
 
 .bar.bar-positive {
   border-color: #009CDE;
   background-color: #009CDE;
+}
+
+.button {
+  border: none;
+  color: #fff;
+  border-radius: 2px;
+  padding-top: 0;
+  padding-bottom: 0;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.button-dark {
+  background-color: #202020 !important;
+}
+
+.button-positive {
+  background-color: #009CDE !important;
+}
+
+.button-balanced {
+  background-color: #39783C;
+}
+
+/* Order */
+
+.order .address {
+  color: #848787;
+  font-size: 16px;
+  line-height: 17px;
+  margin-top: 25px;
+  margin-bottom: 38px;
+}
+
+.order .button {
+  margin-top: 42px;
+}
+
+/* Product */
+
+.product .description {
+  color: #848787;
+  letter-spacing: 0.08em;
+}
+
+.product .button-dark{
+  margin-left: 6px;
+}
+
+.product .tag {
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1.1em;
+  font-size: 15px;
+  color: #030303;
+  margin-top: 13px;
+}
+
+/* Products */
+
+.products .item {
+  text-align: center;
+}
+
+.products p.brand {
+  color: #000;
+  letter-spacing: 0.04em;
+}
+
+.products p.label {
+  color: #848787;
+  letter-spacing: 0.06em;
+}
+
+.products p.price {
+  color: #000;
+}
+
+.products span.old-price {
+  margin-right: 11px;
+}
+
+/* Product(s) */
+
+.product .card,
+.products .card {
+  border: none;
+  box-shadow: none;
+}
+
+.product .item,
+.products .item {
+  border: none;
+}
+
+.product p.old-price,
+.products span.old-price {
+  text-decoration:line-through;
+}
+
+.product p.highlight,
+.products span.highlight {
+  color: #E81D62;
 }

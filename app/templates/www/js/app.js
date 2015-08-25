@@ -1,4 +1,4 @@
-angular.module('myShop', ['bravocart', 'ionic', 'myShop.controllers', 'myShop.services', 'myShop.services'])
+angular.module('<%- name %>', ['bravocart', 'ionic', '<%- name %>.controllers', '<%- name %>.services', '<%- name %>.services'])
 
 .constant('appUrl', 'http://localhost:8100/#')
 
@@ -23,7 +23,7 @@ angular.module('myShop', ['bravocart', 'ionic', 'myShop.controllers', 'myShop.se
   $bcRequestInterceptorProvider) {
 
   // Set API key for any HTTP requests
-  $bcRequestInterceptorProvider.apiKey('<%= apiKey %>');
+  $bcRequestInterceptorProvider.apiKey('Bearer <%= apiKey %>');
 
   // Intercept HTTP requets, adding authorization header
   $httpProvider.interceptors.push('$bcRequestInterceptor');
@@ -103,10 +103,12 @@ angular.module('myShop', ['bravocart', 'ionic', 'myShop.controllers', 'myShop.se
     }
   })
   .state('app.orders', {
-    url: '/orders/:orderId?token&PayerID',
+    url: '/orders/:orderId?token&PayerID&get_express_checkout_details',
     resolve: {
       order: function($bcOrder, $stateParams) {
-        return $bcOrder.get($stateParams);
+        var args = ($stateParams.get_express_checkout_details) ?
+          $stateParams : {orderId: $stateParams.orderId};
+        return $bcOrder.get(args);
       }
     },
     views: {

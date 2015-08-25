@@ -1,9 +1,9 @@
-![](http://assets.bravocart.io/yeoman-bravocart.png)
-
 # Bravocart generator [![Build Status][travis-image]][travis-url] [![npm version][npm-image]][npm-url]
 
 
 > Yeoman generator for creating beautiful mobile shops using Bravocart and Ionicframework.
+
+![][yeoman-demo]
 
 ## Features
 
@@ -102,7 +102,8 @@ Deploy app to Android platform device
   * [Help Center](https://bravocart.zendesk.com/hc/en-us)
   * [Roadmap](https://github.com/bravocart/bravocart/wiki/Roadmap)
 
-[travis-image]: https://travis-ci.org/bravocart/bravocart.svg?branch=master
-[travis-url]: https://travis-ci.org/bravocart/bravocart
 [npm-image]: https://badge.fury.io/js/bravocart.svg
 [npm-url]: http://badge.fury.io/js/bravocart
+[travis-image]: https://travis-ci.org/bravocart/bravocart.svg?branch=master
+[travis-url]: https://travis-ci.org/bravocart/bravocart
+[yeoman-demo]: http://bravocart.io/images/yeoman-bravocart.gif
